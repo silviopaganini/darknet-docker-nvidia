@@ -8,11 +8,11 @@
 docker build -t darknet .
 ````
 
-2.1) On `start.sh` make sure you have the correct address of your webcam 
+3) On `start.sh` make sure you have the correct address of your webcam 
 
 `--device=/dev/bus/usb/003/002:/dev/video0`
 
-3) Run the machine with Webcam
+4) Run the machine with Webcam
 ```bash
 sh start.sh
 ```
