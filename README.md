@@ -1,18 +1,18 @@
 # Darknet Nvidia-Docker Ubuntu 16.04
 ## Steps to run
 
-Clone this repo
+1) Clone this repo
 
-Build the machine 
+2) Build the machine (this step might take a while, go make some coffee)
 ```bash
 docker build -t darknet .
 ````
 
-On `start.sh` make sure you have the correct address of your webcam 
+2.1) On `start.sh` make sure you have the correct address of your webcam 
 
 `--device=/dev/bus/usb/003/002:/dev/video0`
 
-Run the machine with Webcam
+3) Run the machine with Webcam
 ```bash
 sh start.sh
 ```
