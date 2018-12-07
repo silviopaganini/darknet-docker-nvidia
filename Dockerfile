@@ -22,9 +22,19 @@ RUN apt-get install -y python3-pip \
 			qt5-default \
                         linux-libc-dev \
 			libswscale-dev \
-			libgflags-dev
+			libgflags-dev \
+                        python-dev \
+                        python-numpy \
+                        libtbb2 \
+                        libtbb-dev \
+                        libjpeg-dev \
+                        libpng-dev \
+                        libtiff-dev \
+                        libjasper-dev \
+                        libdc1394-22-dev \
+                        libc6 \
+                        libc6-dev
 
-RUN apt-get --reinstall install libc6 libc6-dev -y
 RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade numpy
 
