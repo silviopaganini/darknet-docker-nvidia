@@ -20,6 +20,7 @@ RUN apt-get install -y python3-pip \
 			libavformat-dev \
                         g++-multilib \
 			qt5-default \
+                        linux-libc-dev \
 			libswscale-dev \
 			libgflags-dev
 
