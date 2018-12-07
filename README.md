@@ -2,7 +2,17 @@
 
 ## Prerequisites
 
-1) Make sure you have the NVidia driver for your machine https://www.nvidia.com/Download/index.aspx?lang=en-us
+1) Make sure you have the NVidia driver for your machine 
+
+Find out your the Graphics Card model 
+```bash
+lspci | grep VGA
+```
+
+https://www.nvidia.com/Download/index.aspx?lang=en-us
+
+How to install NVidia Drivers on Linux
+https://gist.github.com/wangruohui/df039f0dc434d6486f5d4d098aa52d07#install-nvidia-graphics-driver-via-runfile
 
 2) Install Docker and NVidia Docker https://github.com/NVIDIA/nvidia-docker
 
