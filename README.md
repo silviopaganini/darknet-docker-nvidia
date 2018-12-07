@@ -50,7 +50,7 @@ on `start.sh` change the following line
 -v /home/projects:/dev/projects \
 ```
 
-4) Run the machine with Webcam
+5) Run the machine with Webcam
 ```bash
 sh start.sh
 ```
