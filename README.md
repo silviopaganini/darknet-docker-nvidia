@@ -23,3 +23,9 @@ docker build -t darknet .
 ```bash
 sh start.sh
 ```
+
+## Darknet
+
+Make sure you have the weights for what you want to run
+
+More information at https://pjreddie.com/darknet/
