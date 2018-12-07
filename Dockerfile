@@ -23,7 +23,7 @@ RUN apt-get install -y python3-pip \
 			libswscale-dev \
 			libgflags-dev
 
-RUN apt-get --reinstall install libc6 libc6-dev
+RUN apt-get --reinstall install libc6 libc6-dev -y
 RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade numpy
 
