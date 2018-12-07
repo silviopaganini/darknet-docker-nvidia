@@ -10,6 +10,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
         build-essential \
         cmake \
         vim \
+        wget \
         pkg-config \
         python3-pip \
         libjpeg8-dev \
