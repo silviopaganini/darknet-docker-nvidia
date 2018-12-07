@@ -32,12 +32,12 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 
 RUN pip3 install --upgrade pip
 
-RUN cd /opt && \
-        wget https://github.com/opencv/opencv_contrib/archive/3.4.0.tar.gz --no-check-certificate && tar -xf 3.4.0.tar.gz && rm 3.4.0.tar.gz \ 
-        wget https://github.com/opencv/opencv/archive/3.4.0.tar.gz --no-check-certificate && tar -xf 3.4.0.tar.gz && rm 3.4.0.tar.gz \
-        cd opencv-3.4.0 && \
-        mkdir build && \
-        cd build && \
+WORKDIR /opt
+RUN wget https://github.com/opencv/opencv_contrib/archive/3.4.0.tar.gz --no-check-certificate && tar -xf 3.4.0.tar.gz && rm 3.4.0.tar.gz
+RUN wget https://github.com/opencv/opencv/archive/3.4.0.tar.gz --no-check-certificate && tar -xf 3.4.0.tar.gz && rm 3.4.0.tar.gz
+
+WORKDIR cd opencv-3.4.0
+RUN  mkdir build && cd build && \
         cmake 	-D CMAKE_BUILD_TYPE=RELEASE \
                 -D BUILD_NEW_PYTHON_SUPPORT=ON \
                 -D CMAKE_INSTALL_PREFIX=/usr/local \
