@@ -34,8 +34,7 @@ RUN pip3 install --upgrade pip
 
 RUN cd /opt && \
         wget https://github.com/opencv/opencv_contrib/archive/3.4.0.tar.gz --no-check-certificate && tar -xf 3.4.0.tar.gz && rm 3.4.0.tar.gz \ 
-        cd /opt && \
-        wget https://github.com/opencv/opencv/archive/3.4.0.tar.gz --no-check-certificate && tar -xf 3.4.0.tar.gz && 3.4.0.tar.gz \
+        wget https://github.com/opencv/opencv/archive/3.4.0.tar.gz --no-check-certificate && tar -xf 3.4.0.tar.gz && rm 3.4.0.tar.gz \
         cd opencv-3.4.0 && \
         mkdir build && \
         cd build && \
