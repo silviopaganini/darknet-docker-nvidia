@@ -29,7 +29,7 @@ WORKDIR /OpenCV
 RUN git clone https://github.com/Itseez/opencv.git && cd opencv && git checkout 3.4.0
 
 WORKDIR /OpenCV
-uUN git clone https://github.com/Itseez/opencv_contrib.git && cd opencv_contrib && git checkout 3.4.0
+RUN git clone https://github.com/Itseez/opencv_contrib.git && cd opencv_contrib && git checkout 3.4.0
 
 WORKDIR /OpenCV/opencv/build
 RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
