@@ -18,10 +18,13 @@ RUN apt-get install -y python3-pip \
 			libavcodec-dev \
 			usbutils \
 			libavformat-dev \
+                        g++-multilib \
 			qt5-default \
 			libswscale-dev \
 			libgflags-dev
 
+RUN apt-get --reinstall install libc6 libc6-dev
+RUN ln -s /usr/include/asm-generic /usr/include/asm
 RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade numpy
 
