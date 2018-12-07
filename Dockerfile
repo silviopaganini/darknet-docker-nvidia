@@ -27,6 +27,9 @@ RUN apt-get update && \
                 -D INSTALL_PYTHON_EXAMPLES=OFF \
                 -D OPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib/modules \
                 -D PYTHON_EXECUTABLE=/usr/bin/python2.7 \
+                -D WITH_OPENGL=ON \
+                -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \
+                -D WITH_CUDA=ON \
                 -D BUILD_EXAMPLES=OFF /opt/opencv && \
         make -j $(nproc) && \
         make install && \
