@@ -6,69 +6,34 @@ ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends apt-utils
-RUN apt-get install -y python3-pip \
-			vim \
-			wget \
-		        build-essential \
-			cmake \
-			git \
-			libgtk2.0-dev \
-			pkg-config \
-			libavcodec-dev \
-			usbutils \
-			libavformat-dev \
-                        g++-multilib \
-			qt5-default \
-                        linux-libc-dev \
-			libswscale-dev \
-			libgflags-dev \
-                        python-dev \
-                        python-numpy \
-                        libtbb2 \
-                        libtbb-dev \
-                        libjpeg-dev \
-                        libpng-dev \
-                        libtiff-dev \
-                        libjasper-dev \
-                        libdc1394-22-dev \
-                        libc6 \
-                        libc6-dev
-
-RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade numpy
-
-WORKDIR /OpenCV
-RUN git clone https://github.com/Itseez/opencv.git && cd opencv && git checkout 3.4.0
-
-WORKDIR /OpenCV
-RUN git clone https://github.com/Itseez/opencv_contrib.git && cd opencv_contrib && git checkout 3.4.0
-
-WORKDIR /OpenCV/opencv/build
-RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
-    -D CMAKE_INSTALL_PREFIX=/usr/local \
-    -D WITH_QT=ON \
-    -D WITH_OPENGL=ON \
-    -D FORCE_VTK=ON \
-    -D WITH_CUDA=ON \
-    -D BUILD_PNG=ON \
-    -D BUILD_TIFF=ON \
-    -D BUILD_TBB=OFF \
-    -D BUILD_JPEG=ON \
-    -D BUILD_JASPER=ON \
-    -D BUILD_EXAMPLES=OFF \
-    -D BUILD_LIBV4L=ON \
-    -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \
-    -D VIBRANTE=TRUE \
-    -D WITH_TBB=ON \
-    -D WITH_GDAL=ON \
-    -D WITH_XINE=ON \
-    -D OPENCV_EXTRA_MODULES_PATH=/OpenCV/opencv_contrib/modules \
-    VERBOSE=1 \
-    ..
-
-RUN make -j7 && make install && ldconfig
-
+RUN apt-get update && \
+        apt-get upgrade -y && \
+        apt-get install -y --no-install-recommends python python-dev python-pip build-essential cmake git pkg-config libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev libgtk2.0-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libatlas-base-dev gfortran libavresample-dev libgphoto2-dev libgstreamer-plugins-base1.0-dev libdc1394-22-dev  && \
+        pip install numpy && \
+        cd /opt && \
+        git clone https://github.com/opencv/opencv_contrib.git && \
+        cd opencv_contrib && \
+        git checkout 3.4.0 && \	
+        cd /opt && \
+        git clone https://github.com/opencv/opencv.git && \
+        cd opencv && \
+        git checkout 3.4.0 && \
+        mkdir build && \
+        cd build && \
+        cmake 	-D CMAKE_BUILD_TYPE=RELEASE \
+                -D BUILD_NEW_PYTHON_SUPPORT=ON \
+                -D CMAKE_INSTALL_PREFIX=/usr/local \
+                -D INSTALL_C_EXAMPLES=OFF \
+                -D INSTALL_PYTHON_EXAMPLES=OFF \
+                -D OPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib/modules \
+                -D PYTHON_EXECUTABLE=/usr/bin/python2.7 \
+                -D BUILD_EXAMPLES=OFF /opt/opencv && \
+        make -j $(nproc) && \
+        make install && \
+        ldconfig && \
+        apt-get purge -y git && \
+        apt-get clean && rm -rf /var/lib/apt/lists/* && \
+        rm -rf /opt/opencv*
 
 RUN git clone https://github.com/pjreddie/darknet.git /darknet
 WORKDIR /darknet
