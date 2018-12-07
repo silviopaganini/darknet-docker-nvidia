@@ -1,10 +1,6 @@
 FROM nvidia/cuda:9.0-devel-ubuntu16.04
 MAINTAINER Silvio Paganini <silvio@fluuu.id>
 
-# to run
-# xhost +local:root
-# docker run --runtime=nvidia --device /dev/video0 --env="DISPLAY" -it darknet /bin/bash
-
 ENV DEBIAN_FRONTEND noninteractive
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
