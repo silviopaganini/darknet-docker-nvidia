@@ -24,7 +24,6 @@ RUN apt-get install -y python3-pip \
 			libgflags-dev
 
 RUN apt-get --reinstall install libc6 libc6-dev
-RUN ln -s /usr/include/asm-generic /usr/include/asm
 RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade numpy
 
