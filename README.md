@@ -1,4 +1,11 @@
 # Darknet Nvidia-Docker Ubuntu 16.04
+
+## Prerequisites
+
+1) Make sure you have the NVidia driver for your machine https://www.nvidia.com/Download/index.aspx?lang=en-us
+
+2) Install Docker and NVidia Docker https://github.com/NVIDIA/nvidia-docker
+
 ## Steps to run
 
 1) Clone this repo
