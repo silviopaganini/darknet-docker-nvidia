@@ -27,7 +27,16 @@ docker build -t darknet .
 
 3) On `start.sh` make sure you have the correct address of your webcam 
 
-`--device=/dev/bus/usb/003/002:/dev/video0`
+Find your webcam bus
+```bash
+lsusb -t
+```
+
+Change the following line with the correct webcam bus
+
+```
+--device=/dev/bus/usb/003/002:/dev/video0
+```
 
 4) Run the machine with Webcam
 ```bash
