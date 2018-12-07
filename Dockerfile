@@ -5,15 +5,34 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 
-RUN apt-get update && apt-get upgrade -y && \
-        apt-get install -y \
+RUN apt-get update
+RUN apt-get update && \
+        apt-get upgrade -y && \
+        apt-get install -y --no-install-recommends \
                 git \
+                python \
+                python-dev \
+                python-pip \
                 build-essential \
                 cmake \
-                pkg-config
-
-RUN apt-get install -y --no-install-recommends python python-dev python-pip libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev libgtk2.0-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libatlas-base-dev gfortran libavresample-dev libgphoto2-dev libgstreamer-plugins-base1.0-dev libdc1394-22-dev
-RUN pip install numpy
+                git \
+                pkg-config \
+                libjpeg8-dev \
+                libtiff5-dev \
+                libjasper-dev \
+                libpng12-dev \
+                libgtk2.0-dev \
+                libavcodec-dev \
+                libavformat-dev \
+                libswscale-dev \
+                libv4l-dev \
+                libatlas-base-dev \
+                gfortran \
+                libavresample-dev \
+                libgphoto2-dev \
+                libgstreamer-plugins-base1.0-dev \
+                libdc1394-22-dev && \
+        pip install numpy
 
 RUN cd /opt && \
         git clone https://github.com/opencv/opencv_contrib.git && \
@@ -39,8 +58,6 @@ RUN cd /opt && \
         make -j $(nproc) && \
         make install && \
         ldconfig && \
-        apt-get purge -y git && \
-        apt-get clean && rm -rf /var/lib/apt/lists/* && \
         rm -rf /opt/opencv*
 
 RUN git clone https://github.com/pjreddie/darknet.git /darknet
