@@ -8,9 +8,6 @@ ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 RUN apt-get update && \
         apt-get install -y \
                 git \
-                python \
-                python-dev \
-                python-pip \
                 build-essential \
                 cmake \
                 pkg-config
@@ -18,6 +15,9 @@ RUN apt-get update && \
 RUN apt-get update && \
         apt-get upgrade -y && \
         apt-get install -y --no-install-recommends \
+                python \
+                python-dev \
+                python-pip \
                 libjpeg8-dev \
                 libtiff5-dev \
                 libjasper-dev \
