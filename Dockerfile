@@ -5,14 +5,13 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y git
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+        git \
         build-essential \
         cmake \
+        vim \
         pkg-config \
-        python \
-        python-dev \
-        python-pip \
+        python3-pip \
         libjpeg8-dev \
         libtiff5-dev \
         libjasper-dev \
@@ -27,8 +26,10 @@ RUN apt-get install -y --no-install-recommends \
         libavresample-dev \
         libgphoto2-dev \
         libgstreamer-plugins-base1.0-dev \
-        libdc1394-22-dev && \
-        pip install numpy
+        libdc1394-22-dev
+
+RUN pip3 install --upgrade pip
+RUN pip3 install --upgrade numpy
 
 RUN cd /opt && \
         git clone https://github.com/opencv/opencv_contrib.git && \
