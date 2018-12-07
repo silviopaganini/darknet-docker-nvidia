@@ -12,7 +12,7 @@ RUN apt-get update && \
                 git \
                 build-essential \
                 cmake \
-                pkg-config \
+                pkg-config
 
 RUN apt-get install -y --no-install-recommends \
                 python \
