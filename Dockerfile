@@ -8,7 +8,7 @@ ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 RUN apt-get update
 RUN apt-get update && \
         apt-get upgrade -y && \
-        apt-get install -y --no-install-recommends git python python-dev python-pip build-essential cmake git pkg-config libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev libgtk2.0-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libatlas-base-dev gfortran libavresample-dev libgphoto2-dev libgstreamer-plugins-base1.0-dev libdc1394-22-dev  && \
+        apt-get install -y --no-install-recommends ca-certificates git python python-dev python-pip build-essential cmake git pkg-config libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev libgtk2.0-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libatlas-base-dev gfortran libavresample-dev libgphoto2-dev libgstreamer-plugins-base1.0-dev libdc1394-22-dev  && \
         pip install numpy
 
 RUN cd /opt && \
