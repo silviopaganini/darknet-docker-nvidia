@@ -10,7 +10,7 @@
 
 1) Clone this repo
 
-2) Build the machine (this step might take a while, go make some coffee)
+2) Build the machine (this step might take a while, go make some ☕️)
 ```bash
 docker build -t darknet .
 ````
