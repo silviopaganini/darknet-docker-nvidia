@@ -38,6 +38,18 @@ Change the following line with the correct webcam bus
 --device=/dev/bus/usb/003/002:/dev/video0
 ```
 
+4) Map a local folder to the Docker Container 
+
+Format:
+```bash
+/local/folder:/docker/folder
+```
+
+on `start.sh` change the following line
+```bash
+-v /home/projects:/dev/projects \
+```
+
 4) Run the machine with Webcam
 ```bash
 sh start.sh
