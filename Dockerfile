@@ -47,10 +47,6 @@ RUN mkdir build && cd build && \
                 -D INSTALL_C_EXAMPLES=OFF \
                 -D INSTALL_PYTHON_EXAMPLES=OFF \
                 -D OPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib-3.4.0/modules \
-#                -D PYTHON_EXECUTABLE=/usr/bin/python3 \
-#                -D WITH_OPENGL=ON \
-#                -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \
-#                -D WITH_CUDA=ON \
                 -D BUILD_EXAMPLES=OFF /opt/opencv-3.4.0 && \
         make -j7 && \
         make install && \
@@ -58,7 +54,7 @@ RUN mkdir build && cd build && \
         rm -rf /opt/opencv*
 
 WORKDIR /
-RUN wget https://github.com/pjreddie/darknet/archive/master.tar.gz --no-check-certificate && tar -xf master.tar.gz && rm master.tar.gz && mv ./darknet-master ./darknet
+RUN wget https://github.com/silviopaganini/darknet/archive/master.tar.gz --no-check-certificate && tar -xf master.tar.gz && rm master.tar.gz && mv ./darknet-master ./darknet
 WORKDIR /darknet
 COPY Makefile Makefile
 
